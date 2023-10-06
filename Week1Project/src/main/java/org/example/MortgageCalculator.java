@@ -6,7 +6,7 @@ public class MortgageCalculator {
     private int loanYears;
     private double monthlyPayment;
     public MortgageCalculator(double principal, double annualRate, int loanYears){
-        this.principal = principal;
+        this.principal = principal;//parameterized constructor this initiate the current value
         this.annualRate = annualRate;
         this.loanYears = loanYears;
 
@@ -27,7 +27,7 @@ public class MortgageCalculator {
     }
 
 
-    public double getMonthlyInterestRate(){
+    public double getMonthlyInterestRate(){//it's not static to show the assigned variables
         double r = (annualRate/12)/100;
         return r;
     }
