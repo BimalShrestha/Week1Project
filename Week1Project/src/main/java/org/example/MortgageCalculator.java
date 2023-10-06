@@ -1,9 +1,9 @@
 package org.example;
 import java.util.Scanner;
 public class MortgageCalculator {
-    private double principal;
-    private double annualRate;
-    private int loanYears;
+    private final double principal;
+    private final double annualRate;
+    private final int loanYears;
     private double monthlyPayment;
     public MortgageCalculator(double principal, double annualRate, int loanYears){
         this.principal = principal;//parameterized constructor this initiate the current value
@@ -11,21 +11,6 @@ public class MortgageCalculator {
         this.loanYears = loanYears;
 
     }
-    public static void main(String[] args){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the principal: ");
-        double principal = scanner.nextDouble();
-        System.out.println("Enter the Yearly rate: ");
-        double annualRate = scanner.nextDouble();
-        System.out.println("Enter the loan years: ");
-        int loanYears = scanner.nextInt();
-        MortgageCalculator calculator = new MortgageCalculator(principal, annualRate,loanYears );
-        double monthlyPayment = calculator.calculateMonthlyPayment();
-        double totalInterest = calculator.calculateTotalInterest();
-        System.out.printf("Your expected monthly payment is %.2f and you total interest is %.2f",monthlyPayment, totalInterest);
-
-    }
-
 
     public double getMonthlyInterestRate(){//it's not static to show the assigned variables
         double r = (annualRate/12)/100;
@@ -47,5 +32,18 @@ public class MortgageCalculator {
         double totalInterest = (monthlyPayment*getNumberOfPayments())-principal;
         return totalInterest;
     }
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the principal: ");
+        double principal = scanner.nextDouble();
+        System.out.println("Enter the Yearly rate: ");
+        double annualRate = scanner.nextDouble();
+        System.out.println("Enter the loan years: ");
+        int loanYears = scanner.nextInt();
+        MortgageCalculator calculator = new MortgageCalculator(principal, annualRate,loanYears );
+        double monthlyPayment = calculator.calculateMonthlyPayment();
+        double totalInterest = calculator.calculateTotalInterest();
+        System.out.printf("Your expected monthly payment is %.2f and you total interest is %.2f",monthlyPayment, totalInterest);
 
+    }
 }

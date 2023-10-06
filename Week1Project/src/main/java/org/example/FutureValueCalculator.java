@@ -1,9 +1,9 @@
 package org.example;
 import java.util.Scanner;
 public class FutureValueCalculator {
-    private double initialDeposit;
-    private double annualInterestRate;
-    private int numberOfYears;
+    private final double initialDeposit;
+    private final double annualInterestRate;
+    private final int numberOfYears;
     private double futureValue;
 
     public FutureValueCalculator(double initialDeposit,double annualInterestRate, int numberOfYears){
@@ -17,6 +17,7 @@ public class FutureValueCalculator {
     public double calculateFutureValue(){
         double p = initialDeposit;
         double r = annualInterestRate/100;
+
         int t = numberOfYears;
         double n = 365;
         double FV = p*(Math.pow((1+(r/n)),(n*t)));

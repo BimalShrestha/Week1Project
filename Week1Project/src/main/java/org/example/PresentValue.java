@@ -1,10 +1,10 @@
 package org.example;
 import java.util.Scanner;
 public class PresentValue {
-    private double monthlyPayout;
-    private double annualInterest;
-    private int numberOfYears;
-    private double presentAmount;
+    private final double monthlyPayout;
+    private final double annualInterest;
+    private final int numberOfYears;
+
 
     public PresentValue(double monthlyPayout, double annualInterest, int numberOfYears){
         this.monthlyPayout = monthlyPayout;
@@ -22,8 +22,7 @@ public class PresentValue {
         double r = getMonthlyInterestRate();
         double n = getNumberOfMonthlyPayments();
         double PV = PMT * ((1-(Math.pow((1+r),-n)))/r);
-        this.presentAmount = PV;
-        return presentAmount;
+        return PV;
     }
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
